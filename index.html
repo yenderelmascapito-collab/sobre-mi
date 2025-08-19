@@ -8,7 +8,7 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Segoe UI", sans-serif;
       background: url("https://cdn.discordapp.com/attachments/1312914434410418227/1407247102538420314/image.png?ex=68a5687e&is=68a416fe&hm=565e1f15092b2b8e5169205e3072eab151740b6969da1bd438c5c62e12d894a3") no-repeat center center fixed;
       background-size: cover;
       color: #ffffff;
@@ -18,51 +18,84 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      backdrop-filter: brightness(0.85);
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin: 0;
       color: #00ffc8;
-      text-shadow: 0 0 10px #000;
+      text-shadow: 0 0 15px #000;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00ffc8; }
+      to { text-shadow: 0 0 25px #00fff2; }
     }
     p {
-      font-size: 1.2rem;
-      color: #e0e0e0;
+      font-size: 1.3rem;
+      color: #f0f0f0;
       max-width: 600px;
-      margin: 10px auto;
-      text-shadow: 0 0 8px #000;
-    }
-    .social {
-      margin-top: 20px;
-    }
-    .social a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #00ffc8;
-      font-weight: bold;
+      margin: 20px auto;
       text-shadow: 0 0 6px #000;
     }
-    iframe {
-      display: none; /* Oculto pero la música suena */
+    .social {
+      margin-top: 30px;
+    }
+    .social button {
+      margin: 0 10px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      background: #00ffc8;
+      color: #000;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00ffc8;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .social button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px #00fff2;
+    }
+    audio {
+      display: none; /* oculto pero reproduce */
     }
   </style>
 </head>
 <body>
   <h1>💻 Programador | 🎮 Gamer</h1>
   <p>
-    Minimalista, directo y sin rodeos.<br>
-    Entre líneas de código y partidas intensas.
+    Creando mundos con <b>código</b> y explorando otros con <b>gaming</b>.<br>
+    Minimalista pero con estilo ⚡
   </p>
 
   <div class="social">
-    <a href="https://github.com/" target="_blank">GitHub</a>
-    <a href="https://discord.com/" target="_blank">Discord</a>
+    <button onclick="playClick();window.open('https://github.com','_blank')">GitHub</button>
+    <button onclick="playClick();window.open('https://discord.com','_blank')">Discord</button>
   </div>
 
-  <!-- Música de fondo: Sexto Sentido - 008Racca -->
-  <iframe width="0" height="0" 
-    src="https://www.youtube.com/embed/tJA_mxEIJ2E?autoplay=1&mute=1&loop=1&playlist=tJA_mxEIJ2E" 
-    frameborder="0" allow="autoplay"></iframe>
+  <!-- Música de fondo con HTML5 -->
+  <audio id="bg-music" autoplay loop>
+    <source src="https://filesamples.com/samples/audio/mp3/sample3.mp3" type="audio/mpeg">
+    Tu navegador no soporta el audio.
+  </audio>
+
+  <!-- Sonido para los botones -->
+  <audio id="click-sound">
+    <source src="https://www.soundjay.com/buttons/sounds/button-3.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const clickSound = document.getElementById("click-sound");
+    function playClick() {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    }
+  </script>
 </body>
 </html>
