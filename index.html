@@ -9,7 +9,8 @@
       margin: 0;
       padding: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #101820);
+      background: url("https://cdn.discordapp.com/attachments/1312914434410418227/1407247102538420314/image.png?ex=68a5687e&is=68a416fe&hm=565e1f15092b2b8e5169205e3072eab151740b6969da1bd438c5c62e12d894a3") no-repeat center center fixed;
+      background-size: cover;
       color: #ffffff;
       text-align: center;
       height: 100vh;
@@ -17,17 +18,20 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      backdrop-filter: brightness(0.85);
     }
     h1 {
       font-size: 2.5rem;
       margin: 0;
       color: #00ffc8;
+      text-shadow: 0 0 10px #000;
     }
     p {
       font-size: 1.2rem;
-      color: #bfbfbf;
+      color: #e0e0e0;
       max-width: 600px;
       margin: 10px auto;
+      text-shadow: 0 0 8px #000;
     }
     .social {
       margin-top: 20px;
@@ -37,9 +41,10 @@
       text-decoration: none;
       color: #00ffc8;
       font-weight: bold;
+      text-shadow: 0 0 6px #000;
     }
     iframe {
-      display: none; /* Música suena pero el reproductor no se ve */
+      display: none; /* Oculto pero la música suena */
     }
   </style>
 </head>
@@ -57,7 +62,7 @@
 
   <!-- Música de fondo: Sexto Sentido - 008Racca -->
   <iframe width="0" height="0" 
-    src="https://www.youtube.com/embed/tJA_mxEIJ2E?autoplay=1&loop=1&playlist=tJA_mxEIJ2E" 
+    src="https://www.youtube.com/embed/tJA_mxEIJ2E?autoplay=1&mute=1&loop=1&playlist=tJA_mxEIJ2E" 
     frameborder="0" allow="autoplay"></iframe>
 </body>
 </html>
