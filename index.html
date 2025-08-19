@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sobre Mí - Gamer & Programador</title>
+  <title>Sobre Mí - Programador</title>
   <style>
     body {
       margin: 0;
@@ -19,6 +19,7 @@
       align-items: center;
       flex-direction: column;
       animation: fadeIn 2s ease-in-out;
+      cursor: url('https://cur.cursors-4u.net/cursors/cur-2/cur116.cur'), auto; /* cursor personalizado */
     }
     @keyframes fadeIn {
       from {opacity: 0;}
@@ -68,15 +69,14 @@
   </style>
 </head>
 <body>
-  <h1>💻 Programador | 🎮 Gamer</h1>
+  <h1>💻 Apasionado por la programación</h1>
   <p>
-    Creando mundos con <b>código</b> y explorando otros con <b>gaming</b>.<br>
-    Minimalista pero con estilo ⚡
+    Construyendo ideas, una línea de código a la vez.
   </p>
 
   <div class="social">
-    <button onclick="playClick();window.open('https://github.com','_blank')">GitHub</button>
-    <button onclick="playClick();window.open('https://discord.com','_blank')">Discord</button>
+    <button onclick="playClick();window.open('https://github.com/','_blank')">GitHub</button>
+    <button onclick="playClick();window.open('https://discord.com/users/1034241683530989700','_blank')">Discord</button>
     <button id="music-btn" onclick="toggleMusic()">🔊 Música</button>
   </div>
 
@@ -90,9 +90,13 @@
   <audio id="click-sound">
     <source src="https://www.soundjay.com/buttons/sounds/button-3.mp3" type="audio/mpeg">
   </audio>
+  <audio id="hover-sound">
+    <source src="https://www.soundjay.com/buttons/sounds/button-09.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
     const clickSound = document.getElementById("click-sound");
+    const hoverSound = document.getElementById("hover-sound");
     const music = document.getElementById("bg-music");
     const musicBtn = document.getElementById("music-btn");
     let isPlaying = false;
@@ -112,6 +116,14 @@
       }
       isPlaying = !isPlaying;
     }
+
+    // Sonido al pasar el mouse por los botones
+    document.querySelectorAll(".social button, #music-btn").forEach(btn => {
+      btn.addEventListener("mouseenter", () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
   </script>
 </body>
 </html>
